@@ -11,3 +11,8 @@ String的使用
 
 Gson的使用
 1. 避免產生unicode字元的建構方法Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+
+
+
+HTTP request編碼以UTF-8的byte[]寫入時，先把字串用.getBytes("UTF-8")再write，例如:
+outPut.write(json.getBytes("UTF-8"));
