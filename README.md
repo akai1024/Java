@@ -20,14 +20,14 @@ HTTP request=====
 
 Serializable應用=====
 1. 簡單的序列化成file
-      SomeObject object = new SomeObject();
-			FileOutputStream fs = new FileOutputStream("some.save");
-			ObjectOutputStream os = new ObjectOutputStream(fs);
-			os.writeObject(object);
-			os.close();
+SomeObject object = new SomeObject();
+FileOutputStream fs = new FileOutputStream("some.save");
+ObjectOutputStream os = new ObjectOutputStream(fs);
+os.writeObject(object);
+os.close();
 2. 簡單的反序列化
-			FileInputStream fs = new FileInputStream("some.save");
-			ObjectInputStream os = new ObjectInputStream(fs);
-			SomeObject car = (SomeObject) os.readObject();
-			os.close();
+FileInputStream fs = new FileInputStream("some.save");
+ObjectInputStream os = new ObjectInputStream(fs);
+SomeObject car = (SomeObject) os.readObject();
+os.close();
 3. 透過反序列化的物件只有記憶體位置不同，若所有的成員都實現Serializable值將完全保留
