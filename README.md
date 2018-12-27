@@ -31,6 +31,7 @@
         ObjectOutputStream os = new ObjectOutputStream(fs);
         os.writeObject(object);
         os.close();
+
 2. 簡單的反序列化
 
         FileInputStream fs = new FileInputStream("some.save");
