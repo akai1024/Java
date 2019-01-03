@@ -16,6 +16,72 @@
 
 ----------
 
+## Jackson Json的使用
+使用到的package
+
+    import com.fasterxml.jackson.annotation.JsonInclude.Include;
+    import com.fasterxml.jackson.databind.DeserializationFeature;
+    import com.fasterxml.jackson.databind.ObjectMapper;
+    import com.fasterxml.jackson.databind.SerializationFeature;
+
+
+1. 創建mapper
+
+        private static ObjectMapper jsonMapper = new ObjectMapper();
+
+2. 一些常用設定
+    1. 設定jackson只要parse成員非null的鍵值
+
+            jsonMapper.setSerializationInclusion(Include.NON_NULL);
+
+    2. 設定jackson忽略未知的成員名稱
+
+            jsonMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+    3. 設定jackson忽略沒有成員的結構會產生的例外(允許空的成員結構)
+
+            jsonMapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+
+3. 範例函式
+    1. 轉JsonString
+
+            public static String toJsonStr(Object object) {
+        		if(object == null) {
+        			return "null";
+        		}
+
+        		try {
+        			return jsonMapper.writeValueAsString(object);
+        		} catch (Exception e) {
+        			if(logger.isErrorEnabled()) {
+        				logger.error("toJsonStr fail", e);
+        			}
+        		}
+
+        		return "{}";
+            }
+
+    2. 轉Object
+
+            public static <T> T parseJson(String json, Class<T> clazz) {
+                if (isEmptyString(json)) {
+                    return null;
+                }
+
+                try {
+                    return jsonMapper.readValue(json, clazz);
+                } catch (Exception e) {
+                    if (logger.isErrorEnabled()) {
+                        logger.error("parseJson fail", e);
+                    }
+                }
+
+                return null;
+            }
+
+
+----------
+
 ## HTTP request
 1. 編碼以UTF-8的byte[]寫入時，先把字串用`.getBytes("UTF-8")`再write，例如:
 
