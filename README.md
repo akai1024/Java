@@ -64,7 +64,7 @@
     2. 轉Object
 
             public static <T> T parseJson(String json, Class<T> clazz) {
-                if (isEmptyString(json)) {
+                if (json == null || json.isEmpty()) {
                     return null;
                 }
 
