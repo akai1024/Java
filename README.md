@@ -3,7 +3,7 @@
 
 
 ## String的使用
-1. `.split()`方法時會使用**正則表達式**判斷，因此"|"必須加入跳脫字元為"\\|"，詳閱正則表達式字符(|, [, ] ...)
+1. `.split()`方法時會使用**正則表達式**判斷，因此`|`必須加入跳脫字元為`\\|`，詳閱正則表達式字符(|, [, ] ...)
 2. `.replaceAll()`也會使用正則表達式
 
 ----------
@@ -61,7 +61,7 @@
         		return "{}";
             }
 
-    2. 轉Object
+    2. 轉Object(註：轉出的類別成員必須要有setter)
 
             public static <T> T parseJson(String json, Class<T> clazz) {
                 if (json == null || json.isEmpty()) {
