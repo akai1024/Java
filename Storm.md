@@ -45,7 +45,7 @@
     由這兩個判斷可以精準的篩選出觸發execute的是tick tuple  
     當然也可以由這個事件中去emit資訊  
 
-3. 後記
+3. 後記  
 還沒摸索是否可以模仿cron time的schedule方法
 
 ---
