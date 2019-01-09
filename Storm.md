@@ -38,9 +38,9 @@
 
 2. 解說
     1. `conf.put(Config.TOPOLOGY_TICK_TUPLE_FREQ_SECS, 5);`
-    這行當然就是替這個component添加一個tick tuple的關鍵
-    可以想像每一個bolt都是一個component，而後面配置的變數即為間格秒數
+    這行當然就是替這個component添加一個tick tuple的關鍵  
+    可以想像每一個bolt都是一個component，而後面配置的變數即為間格秒數  
 
     2. `if(input.getSourceComponent().equals(Constants.SYSTEM_COMPONENT_ID) && input.getSourceStreamId().equals(Constants.SYSTEM_TICK_STREAM_ID))`
-    由這兩個判斷可以精準的篩選出觸發execute的是tick tuple
-    當然也可以由這個事件中去emit資訊
+    由這兩個判斷可以精準的篩選出觸發execute的是tick tuple  
+    當然也可以由這個事件中去emit資訊  
