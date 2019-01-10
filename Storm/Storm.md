@@ -49,3 +49,8 @@
 還沒摸索是否可以模仿cron time的schedule方法
 
 ---
+
+### KafkaSpout
+1. 如果流中有任何一個bolt沒有正常ack的話，該筆message就不算是消費成功  
+因此要注意BaseBasicBolt與BaseRichBolt的差異  
+簡言之: BaseBasicBolt沒有提供ack而是隱性進行了調用，而BaseRichBolt要自行調用。 [(資料來源)](https://basebase.github.io/2016/08/11/storm%E6%95%B4%E5%90%88kafka%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/)
