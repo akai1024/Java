@@ -27,13 +27,14 @@
                 if (input.getSourceComponent().equals(Constants.SYSTEM_COMPONENT_ID)
                         && input.getSourceStreamId().equals(Constants.SYSTEM_TICK_STREAM_ID)) {
                     String dateStr = new Date().toString();
-                if(logger.isInfoEnabled()) {
-                    logger.info("tick tuple, current time is " + dateStr);
+                    if(logger.isInfoEnabled()) {
+                        logger.info("tick tuple, current time is " + dateStr);
+                    }
+
+                    return;
                 }
 
-                return;
             }
-
             ...
 
 2. 解說
