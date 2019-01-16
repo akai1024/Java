@@ -60,3 +60,5 @@
             }
             return structMap;
         }
+
+5. 若有一個row被update的column中包含primaryKey(不管是不是多column構成的primaryKey)，在Debezium被捕捉到的狀態會是**先delete一個row，然後再insert一個row**，而不是直接捕捉update狀態
