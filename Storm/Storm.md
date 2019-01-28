@@ -60,8 +60,8 @@
 
 ### StormUI的精準度
 通常數據的統計會對系統的性能造成一定的影響，那麼 storm 中為了平衡這種影響，採取了抽樣的方式進行上報數據；storm 中把此值默認為 0.05，即每執行 20 次則執行一次數據累加(value = 20)，當然我們也可以修改抽樣的配置值為 1，那麼就是逐條上報了。  
-調整方法:
-1. 直接對storm的運行環境調整UI更新資訊的準確度：
+#### 調整方法：  
+1. 直接對storm的運行環境調整UI更新資訊的準確度：  
 在strom.yaml裡添加參數topology.stats.sample.rate: 1.0，這個值預設為0.05，即每20次蒐集一次資訊。
-2. 在每個拓樸自己配置：
+2. 在每個拓樸自己配置：  
 在Topology提交(submit)時提供的org.apache.storm.Config中設定`Config.setStatsSampleRate(1.0f)`，1.0f的話就是每條資訊精準的蒐集。
